@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+  
+  <div class="perfil">
+    
+    <div class="perfil-card">
+    
+      <div class="fotoPerfil">
+        <img [src]="" alt="foto perfil">
+      </div>
+  
+      <div class="datosPerfil">
+
+        <label>Nombre:</label>
+        <ion-input class="text-dato" [(ngModel)]="nombre"></ion-input>
+              
+        <label>Cédula:</label>
+        <ion-input class="text-dato" [(ngModel)]="cedula" type="number"></ion-input>
+              
+        <label>Teléfono:</label>
+        <ion-input class="text-dato" [(ngModel)]="telefono" type="number"></ion-input>
+              
+        <label>Correo:</label>
+        <ion-input class="text-dato" [(ngModel)]="correo"></ion-input>
+              
+        <label>Dirección:</label>
+        <ion-input class="text-dato" [(ngModel)]="direccion"></ion-input>
+              
+        <label>Edad:</label>
+        <ion-input class="text-dato" [(ngModel)]="edad" type="number"></ion-input>
+        
+        
+      </div>
+      
+      <ion-button (click)="guardarDatos()">Guardar</ion-button>
+      
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true">
+
+  <div class="perfil">
+    
+    <div class="perfil-card">
+    
+      <div class="fotoPerfil">
+        <img [src]="perfil" alt="foto perfil">
+      </div>
+  
+      <div class="datosPerfil">
+        <label>Nombre:</label> 
+        <div class="dato">
+          <p class="text-dato">{{ nombre }}</p>
+        </div>
+  
+        <label>Cédula:</label>
+        <div class="dato">
+          <p class="text-dato">{{ cedula }}</p>
+        </div>
+        
+        <label>Teléfono:</label> 
+        <div class="dato">
+          <p class="text-dato">{{ telefono }}</p>
+        </div>
+        
+  
+        <label>Correo:</label>
+        <div class="dato">
+          <p class="text-dato">{{ correo }}</p>
+        </div>
+        
+  
+        <label>Dirección:</label> 
+        <div class="dato">
+          <p class="text-dato">{{ direccion }}</p>
+        </div>
+        
+  
+        <label>Edad:</label>
+        <div class="dato">
+          <p class="text-dato">{{ edad }}</p>
+        </div> 
+        
+  
+      </div>
+  
+    </div>
+
+  </div>
+
+</ion-content>
