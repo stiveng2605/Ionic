@@ -1,0 +1,27 @@
+<div class="contenedor">
+
+  <div *ngIf="verProducts; else noVerProducts">
+
+    <div *ngFor="let api of listVerProduct" class="small-card">
+
+      <img [src]="api.image" alt="{{api.title}}" class="small-card-image">
+
+      <div class="small-card-content">
+
+        <p class="small-card-id">ID: {{api.id}}</p>
+        <label class="small-card-title">{{api.title}}</label>
+        <p class="small-card-price">{{api.price}}</p>
+        <p class="small-card-category">Category: {{api.category}}</p>
+        <p class="small-card-rating">⭐ {{api?.rating?.rate}} / 5 ({{api?.rating?.count}} reviews)</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <ng-template #noVerProducts>
+    <p>No existen productos</p>
+  </ng-template>
+  
+</div>
