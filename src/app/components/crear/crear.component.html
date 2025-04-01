@@ -1,0 +1,46 @@
+<ion-content>
+
+  <div class="contenedor">
+
+    <form class="formulario">
+
+      <div class="title">
+        <ion-title>Crear Producto</ion-title>
+      </div>
+  
+      <ion-label>ID</ion-label>
+      <ion-input class="dato" name="id" [(ngModel)]="nuevoProducto.id" type="number"></ion-input>
+  
+      <ion-label>Título</ion-label>
+      <ion-input class="dato" name="title" [(ngModel)]="nuevoProducto.title"></ion-input>
+      
+      <ion-label>Precio</ion-label>
+      <ion-input class="dato" name="price" [(ngModel)]="nuevoProducto.price" type="number"></ion-input>
+  
+      <ion-label>Descripción</ion-label>
+      <ion-input class="dato" name="description" [(ngModel)]="nuevoProducto.description"></ion-input>
+  
+      <ion-label>Categoría</ion-label>
+      <ion-input class="dato" name="category" [(ngModel)]="nuevoProducto.category"></ion-input>
+  
+      <ion-label>Imagen (URL)</ion-label>
+      <ion-input class="dato" name="image" [(ngModel)]="nuevoProducto.image"></ion-input>
+  
+      <ion-label>Puntuación</ion-label>
+      <ion-input class="dato" name="rate" [(ngModel)]="nuevoProducto.rating.rate" type="number"></ion-input>
+  
+      <ion-label>Cantidad</ion-label>
+      <ion-input class="dato" name="count" [(ngModel)]="nuevoProducto.rating.count" type="number"></ion-input>
+  
+      
+        
+      <div class="but">
+        <ion-button class="boton" type="submit" (click)="EnviarProducto()">Crear Producto</ion-button>
+      </div>
+      
+
+    </form>
+
+  </div>
+
+</ion-content>

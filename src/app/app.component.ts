@@ -10,8 +10,8 @@ export class AppComponent {
     { title: 'User', url: '/user', icon: 'person' },
     { title: 'Registro', url: '/form', icon: 'add-circle' },
     { title: 'Productos', url: '/product', icon: 'person' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
+    { title: 'Carrito de compras', url: '/carrito', icon: 'cart' },
+    { title: 'Agregar Producto', url: '/creacion', icon: 'archive' },
     { title: 'Trash', url: '/folder/trash', icon: 'trash' },
     { title: 'Spam', url: '/folder/spam', icon: 'warning' },
   ];

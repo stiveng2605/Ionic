@@ -1,20 +1,34 @@
-<div class="contenedor">
+<ion-content>
 
-  <div *ngIf="verProducts; else noVerProducts">
+  <div *ngIf="verProducts; else noVerProducts" class="contenedor">
 
-    <div *ngFor="let api of listVerProduct" class="small-card">
+    <div *ngFor="let api of listVerProduct" >
 
-      <img [src]="api.image" alt="{{api.title}}" class="small-card-image">
+      <ion-card class="carta">
 
-      <div class="small-card-content">
+        <img [src]="api.image" alt="{{api.title}}" class="small-card-image">
+        <ion-card-header class="contenido">
 
-        <p class="small-card-id">ID: {{api.id}}</p>
-        <label class="small-card-title">{{api.title}}</label>
-        <p class="small-card-price">{{api.price}}</p>
-        <p class="small-card-category">Category: {{api.category}}</p>
-        <p class="small-card-rating">⭐ {{api?.rating?.rate}} / 5 ({{api?.rating?.count}} reviews)</p>
 
-      </div>
+          <ion-card-title>{{api.title}}</ion-card-title>
+          <ion-card-subtitle>ID: {{api.id}} </ion-card-subtitle>
+
+        </ion-card-header>
+
+        <ion-card-content class="contenido">
+
+          <p class="small-card-price">{{api.price}}</p>
+          <p class="small-card-category">Category: {{api.category}}</p>
+          <p class="small-card-rating">⭐ {{api?.rating?.rate}} / 5 ({{api?.rating?.count}} reviews)</p>
+
+          <ion-button class="boton" *ngIf="this.MostrarBotonCompra" (click)="MostarEvento()">Comprar</ion-button>
+          <ion-button class="boton" *ngIf="this.MostrarBotonEliminar" (click)="EliminarProducto()">Borrar</ion-button>
+
+          </ion-card-content>
+        
+
+      </ion-card>
+
 
     </div>
 
@@ -23,5 +37,5 @@
   <ng-template #noVerProducts>
     <p>No existen productos</p>
   </ng-template>
-  
-</div>
+
+</ion-content>

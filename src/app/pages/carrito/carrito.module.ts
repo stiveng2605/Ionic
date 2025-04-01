@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProductPageRoutingModule } from './product-routing.module';
+import { CarritoPageRoutingModule } from './carrito-routing.module';
 
-import { ProductPage } from './product.page';
-
+import { CarritoPage } from './carrito.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -15,9 +14,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    ComponentsModule,
-    ProductPageRoutingModule
+    CarritoPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [ProductPage]
+  declarations: [CarritoPage]
 })
-export class ProductPageModule {}
+export class CarritoPageModule {}

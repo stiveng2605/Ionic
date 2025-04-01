@@ -1,6 +1,10 @@
 <ion-content [fullscreen]="true">
   
-    
+    <app-productos 
+    [listVerProduct]="listProduct"
+    [MostrarBotonEliminar]="false"
+    (messageEvent)="RecibirMensaje($event)"
+    ></app-productos>
 
 
 </ion-content>

@@ -1,0 +1,12 @@
+<ion-content [fullscreen]="true">
+
+  <app-crear (enviarProduct)="AgregarProducto($event)"></app-crear>
+
+  <app-productos 
+  [listVerProduct]="listCreacion"
+  [MostrarBotonEliminar]="false"
+  [MostrarBotonCompra]="false"
+  ></app-productos>
+
+
+</ion-content>

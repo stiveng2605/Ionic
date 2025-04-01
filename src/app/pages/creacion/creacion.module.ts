@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProductPageRoutingModule } from './product-routing.module';
+import { CreacionPageRoutingModule } from './creacion-routing.module';
 
-import { ProductPage } from './product.page';
+import { CreacionPage } from './creacion.page';
 
 import { ComponentsModule } from 'src/app/components/components.module';
 
@@ -15,9 +15,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    ComponentsModule,
-    ProductPageRoutingModule
+    CreacionPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [ProductPage]
+  declarations: [CreacionPage]
 })
-export class ProductPageModule {}
+export class CreacionPageModule {}

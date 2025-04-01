@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,EventEmitter,Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/data/interfaces/product.model';
 
 @Component({
@@ -13,8 +13,25 @@ export class ProductosComponent  implements OnInit {
 
   ngOnInit() {}
 
-  listVerProduct: Product [] = []
+  @Input() listVerProduct: Product [] = []
+
+  @Input() MostrarBotonCompra: boolean= true;
+  @Input() MostrarBotonEliminar: boolean = true;
+
+  @Output() messageEvent = new EventEmitter<string>();
   
   verProducts: Boolean = true;
+
+  ComprarProducto(){
+    console.log("El objeto se ha comprado")
+  }
+
+  EliminarProducto(){
+    console.log("El objeto se ha Eliminado")
+  }
+
+  MostarEvento(){
+    this.messageEvent.emit("Hola soy tu hijo")
+  }
 
 }
