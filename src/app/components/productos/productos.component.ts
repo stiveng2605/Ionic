@@ -14,7 +14,6 @@ export class ProductosComponent  implements OnInit {
   ngOnInit() {}
 
   @Input() listVerProduct: Product [] = []
-  /*Propiedad Input -> Le damos nombre para la variable -> El tipo de dato que recibe -> Valor si lleva  */
 
   @Input() MostrarBotonCompra: boolean= true;
 
@@ -22,7 +21,6 @@ export class ProductosComponent  implements OnInit {
   @Input() MostrarBotonEliminar: boolean = true;
 
   @Output() eventoEnviar = new EventEmitter<string>();
-  /*Propiedad Output -> Le damos nombre al evento -> Decimos que es un nuevo evento -> Valor que recibe  */
   
   verProducts: Boolean = true;
 

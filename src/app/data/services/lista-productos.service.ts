@@ -14,9 +14,11 @@ export class ListaProductosService {
 
   guardarLista(producto: Product) {
     this.lista.push(producto);
-}
+  }
 
-  mostrarLista(){
+  mostrarLista(): Product[] {
     return this.lista
   }
+
+
 }

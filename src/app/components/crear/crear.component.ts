@@ -32,6 +32,11 @@ export class CrearComponent  implements OnInit {
     this.enviarProduct.emit({...this.nuevoProducto});
   }
 
+  AgregarProducto() {
+    this.listaProductosService.guardarLista(this.nuevoProducto);
+    console.log('Producto agregado:', this.nuevoProducto);
+  }
+
 
   ngOnInit() {}
 
