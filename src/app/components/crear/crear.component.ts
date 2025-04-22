@@ -1,5 +1,6 @@
 import { Component,EventEmitter,Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/data/interfaces/product.model';
+import { ListaProductosService } from 'src/app/data/services/lista-productos.service';
 
 @Component({
   selector: 'app-crear',
@@ -23,14 +24,14 @@ export class CrearComponent  implements OnInit {
       rate: 0,
       count: 0,
     }
-  };
+  }
+
+  constructor(private listaProductosService : ListaProductosService){}
 
   EnviarProducto() {
     this.enviarProduct.emit({...this.nuevoProducto});
   }
 
-
-  constructor() { }
 
   ngOnInit() {}
 

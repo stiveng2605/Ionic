@@ -14,11 +14,15 @@ export class ProductosComponent  implements OnInit {
   ngOnInit() {}
 
   @Input() listVerProduct: Product [] = []
+  /*Propiedad Input -> Le damos nombre para la variable -> El tipo de dato que recibe -> Valor si lleva  */
 
   @Input() MostrarBotonCompra: boolean= true;
+
+  
   @Input() MostrarBotonEliminar: boolean = true;
 
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() eventoEnviar = new EventEmitter<string>();
+  /*Propiedad Output -> Le damos nombre al evento -> Decimos que es un nuevo evento -> Valor que recibe  */
   
   verProducts: Boolean = true;
 
@@ -31,7 +35,7 @@ export class ProductosComponent  implements OnInit {
   }
 
   MostarEvento(){
-    this.messageEvent.emit("Hola soy tu hijo")
+    this.eventoEnviar.emit("Hola soy tu hijo")
   }
 
 }
