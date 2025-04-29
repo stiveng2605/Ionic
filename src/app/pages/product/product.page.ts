@@ -18,9 +18,9 @@ export class ProductPage implements OnInit {
   constructor(private listaProductosService: ListaProductosService) { }
 
   ngOnInit() {
-    this.listaProductosService.getProductos().subscribe(
-        respuesta => {
-          this.listProduct=respuesta
+    this.listaProductosService.metodoHTTP().subscribe(
+        (lista: Product[]) => {
+          this.listProduct = lista;
         },
         error => {
           console.log(error)
@@ -28,6 +28,13 @@ export class ProductPage implements OnInit {
         }
       )
   }
+
+  
+  agregarProducto(product : Product){
+    this.listProduct.push(product)
+  }
+
+
 
   RecibirMensaje(mensaje: string){
     console.log("El mensaje de mi hijo es: " + mensaje)

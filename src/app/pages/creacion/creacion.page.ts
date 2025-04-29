@@ -12,7 +12,7 @@ export class CreacionPage implements OnInit {
 
   listCreacion: Product [] = []
 
-  AgregarProducto(producto: Product){
+  AgregarProducto(producto: Product) {
     this.listCreacion.push(producto)
   }
 

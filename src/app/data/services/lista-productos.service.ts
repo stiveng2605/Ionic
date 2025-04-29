@@ -22,15 +22,15 @@ export class ListaProductosService {
       return this.http.get<Product[]>(this.baseurl)
   }
 
-  metodoHTTP(): void {
+  metodoHTTP(): Observable<Product[]> {
 
     if (this.consum == false){
-
       this.http.get<Product[]>(this.baseurl).subscribe(
         
         respuesta => {
           this.lista=respuesta
           this.consum = true
+          console.log("SSe consumio correctamente")
         },
         error => {
           console.log(error)
@@ -39,9 +39,10 @@ export class ListaProductosService {
       )
 
     }else {
-      return of(this.lista);
+      console.log("Ya esta consumida")
     }
 
+    return of(this.lista)
   }
 
 
