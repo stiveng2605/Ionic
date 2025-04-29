@@ -1,5 +1,6 @@
 import { Component,EventEmitter,Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/data/interfaces/product.model';
+import { ListaProductosService } from 'src/app/data/services/lista-productos.service';
 
 @Component({
   selector: 'app-productos',
@@ -9,10 +10,6 @@ import { Product } from 'src/app/data/interfaces/product.model';
 })
 export class ProductosComponent  implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {}
-
   @Input() listVerProduct: Product [] = []
 
   @Input() MostrarBotonCompra: boolean= true;
@@ -20,7 +17,12 @@ export class ProductosComponent  implements OnInit {
   
   @Input() MostrarBotonEliminar: boolean = true;
 
-  @Output() eventoEnviar = new EventEmitter<string>();
+  constructor() { }
+
+  ngOnInit() {
+    
+  }
+
   
   verProducts: Boolean = true;
 
@@ -32,8 +34,6 @@ export class ProductosComponent  implements OnInit {
     console.log("El objeto se ha Eliminado")
   }
 
-  MostarEvento(){
-    this.eventoEnviar.emit("Hola soy tu hijo")
-  }
+
 
 }

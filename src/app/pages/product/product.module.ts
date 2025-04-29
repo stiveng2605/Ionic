@@ -9,6 +9,7 @@ import { ProductPageRoutingModule } from './product-routing.module';
 import { ProductPage } from './product.page';
 
 import { ComponentsModule } from 'src/app/components/components.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     ComponentsModule,
-    ProductPageRoutingModule
+    ProductPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [ProductPage]
 })

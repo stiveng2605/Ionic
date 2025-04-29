@@ -21,7 +21,7 @@
           <p class="small-card-category">Category: {{api.category}}</p>
           <p class="small-card-rating">⭐ {{api?.rating?.rate}} / 5 ({{api?.rating?.count}} reviews)</p>
 
-          <ion-button class="boton" *ngIf="this.MostrarBotonCompra" (click)="MostarEvento()">Comprar</ion-button>
+          <ion-button class="boton" *ngIf="this.MostrarBotonCompra">Comprar</ion-button>
           <ion-button class="boton" *ngIf="this.MostrarBotonEliminar" (click)="EliminarProducto()">Borrar</ion-button>
 
           </ion-card-content>

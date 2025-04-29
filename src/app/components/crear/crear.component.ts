@@ -1,6 +1,5 @@
 import { Component,EventEmitter,Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/data/interfaces/product.model';
-import { ListaProductosService } from 'src/app/data/services/lista-productos.service';
 
 @Component({
   selector: 'app-crear',
@@ -26,15 +25,10 @@ export class CrearComponent  implements OnInit {
     }
   }
 
-  constructor(private listaProductosService : ListaProductosService){}
+  constructor(){}
 
   EnviarProducto() {
     this.enviarProduct.emit({...this.nuevoProducto});
-  }
-
-  AgregarProducto() {
-    this.listaProductosService.guardarLista(this.nuevoProducto);
-    console.log('Producto agregado:', this.nuevoProducto);
   }
 
 
