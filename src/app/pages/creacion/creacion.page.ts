@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/data/interfaces/product.model';
+import { ListaProductosService } from 'src/app/data/services/lista-productos.service';
 
 
 @Component({
@@ -12,13 +13,17 @@ export class CreacionPage implements OnInit {
 
   listCreacion: Product [] = []
 
-  AgregarProducto(producto: Product) {
-    this.listCreacion.push(producto)
-  }
-
-  constructor() { }
+  constructor(private prouctService : ListaProductosService) { }
 
   ngOnInit() {
+    this.prouctService.getProductsCreate().subscribe(
+      (lista: Product[]) => {
+        this.listCreacion = lista
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
 }

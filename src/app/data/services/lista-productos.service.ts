@@ -11,6 +11,7 @@ export class ListaProductosService {
   mensaje:string="";
 
   lista: Product[] = []
+  listCreate : Product[] = []
 
   consum : boolean = false;
 
@@ -23,7 +24,6 @@ export class ListaProductosService {
   }
 
   metodoHTTP(): Observable<Product[]> {
-
     if (this.consum == false){
       this.http.get<Product[]>(this.baseurl).subscribe(
         
@@ -37,22 +37,28 @@ export class ListaProductosService {
         }
 
       )
-
     }else {
       console.log("Ya esta consumida")
     }
-
     return of(this.lista)
   }
 
+  createProduct(product: Product){
+    this.http.post(this.baseurl, product).subscribe(
+      respuesta => {
+        this.lista.push(product)
+        this.listCreate.push(product)
+        console.log(respuesta)
+      },
+      error => {
+        console.log(error)
+      }
+    )
 
-  guardarLista(producto: Product) {
-    this.lista.push(producto);
   }
 
-  mostrarLista(): Product[] {
-    return this.lista
+  getProductsCreate(): Observable<Product[]> {
+    return of(this.listCreate)
   }
-
 
 }

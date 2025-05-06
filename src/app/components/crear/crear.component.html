@@ -2,40 +2,50 @@
 
   <div class="contenedor">
 
-    <form class="formulario">
+    <form [formGroup] = "FormProduct" (ngSubmit)="validaForm()" class="formulario">
 
       <div class="title">
         <ion-title>Crear Producto</ion-title>
       </div>
   
-      <ion-label>ID</ion-label>
-      <ion-input class="dato" name="id" [(ngModel)]="nuevoProducto.id" type="number"></ion-input>
+      <ion-label for="id">ID</ion-label>
+      <ion-input class="dato" id="id" type="number" formControlName="id"></ion-input>
+      <label [hidden]="this.FormProduct.get('id')?.valid">ID no valido</label>
   
       <ion-label>Título</ion-label>
-      <ion-input class="dato" name="title" [(ngModel)]="nuevoProducto.title"></ion-input>
+      <ion-input class="dato" id="title" type="string" formControlName="title"></ion-input>
+      <label [hidden]="this.FormProduct.get('title')?.valid">Nombre no valido</label>
       
       <ion-label>Precio</ion-label>
-      <ion-input class="dato" name="price" [(ngModel)]="nuevoProducto.price" type="number"></ion-input>
+      <ion-input class="dato" id="price" type="number" formControlName="price"></ion-input>
+      <label [hidden]="this.FormProduct.get('price')?.valid">Precio no valido</label>
   
       <ion-label>Descripción</ion-label>
-      <ion-input class="dato" name="description" [(ngModel)]="nuevoProducto.description"></ion-input>
+      <ion-input class="dato" id="description" type="string" formControlName="description"></ion-input>
+      <label [hidden]="this.FormProduct.get('description')?.valid">Descripción no valida</label>
   
       <ion-label>Categoría</ion-label>
-      <ion-input class="dato" name="category" [(ngModel)]="nuevoProducto.category"></ion-input>
+      <ion-input class="dato" id="category" type="string" formControlName="category"></ion-input>
+      <label [hidden]="this.FormProduct.get('category')?.valid">Categoria no valida</label>
   
       <ion-label>Imagen (URL)</ion-label>
-      <ion-input class="dato" name="image" [(ngModel)]="nuevoProducto.image"></ion-input>
+      <ion-input class="dato" id="image" type="url" formControlName="image"></ion-input>
+      <label [hidden]="this.FormProduct.get('image')?.valid">Direccion no valida</label>
   
-      <ion-label>Puntuación</ion-label>
-      <ion-input class="dato" name="rate" [(ngModel)]="nuevoProducto.rating.rate" type="number"></ion-input>
-  
-      <ion-label>Cantidad</ion-label>
-      <ion-input class="dato" name="count" [(ngModel)]="nuevoProducto.rating.count" type="number"></ion-input>
+      <div formGroupName="rating">
+        <ion-label>Puntuación</ion-label>
+        <ion-input class="dato" id="rate" type="number" formControlName="rate"></ion-input>
+        <label [hidden]="FormProduct.get('rating.rate')?.valid">Puntuación no válida</label>
+    
+        <ion-label>Cantidad</ion-label>
+        <ion-input class="dato" id="count" type="number" formControlName="count"></ion-input>
+        <label [hidden]="FormProduct.get('rating.count')?.valid">Cantidad no válida</label>
+      </div>
   
       
         
       <div class="but">
-        <ion-button class="boton" type="submit" (click)="EnviarProducto()">Crear Producto</ion-button>
+        <ion-button class="boton" type="submit" [disabled]="this.FormProduct.invalid">Crear Producto</ion-button>
       </div>
       
 

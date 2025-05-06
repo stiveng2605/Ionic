@@ -24,7 +24,6 @@ export class ProductPage implements OnInit {
         },
         error => {
           console.log(error)
-  
         }
       )
   }
