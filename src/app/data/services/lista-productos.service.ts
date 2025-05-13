@@ -12,6 +12,7 @@ export class ListaProductosService {
 
   lista: Product[] = []
   listCreate : Product[] = []
+  listCar: Product[]= []
 
   consum : boolean = false;
 
@@ -30,7 +31,7 @@ export class ListaProductosService {
         respuesta => {
           this.lista=respuesta
           this.consum = true
-          console.log("SSe consumio correctamente")
+          console.log("Se consumio correctamente")
         },
         error => {
           console.log(error)
@@ -59,6 +60,21 @@ export class ListaProductosService {
 
   getProductsCreate(): Observable<Product[]> {
     return of(this.listCreate)
+  }
+
+  addCar(product : Product) {
+    this.listCar.push(product)
+  }
+
+  getProductsCar():Observable<Product[]> {
+    return of(this.listCar)
+  }
+
+  deleteProductCar(id: number) {
+    const indice = this.listCar.findIndex(product => product.id === id);
+    if (indice !== -1) {
+      this.listCar.splice(indice, 1);
+    }
   }
 
 }

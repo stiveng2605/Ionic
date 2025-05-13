@@ -13,6 +13,7 @@ import { ListaProductosService } from 'src/app/data/services/lista-productos.ser
 export class CrearComponent  implements OnInit {
 
   FormProduct! : FormGroup;
+  list : Product[] = []
 
   
   @Output() enviarProduct = new EventEmitter<Product>();
@@ -21,11 +22,21 @@ export class CrearComponent  implements OnInit {
 
   constructor(private productService : ListaProductosService, private fb : FormBuilder,private router : Router){
     this.initForm()
+    this.productService.metodoHTTP().subscribe(
+      (lista : Product[]) => {
+        this.list = lista
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  
   }
+
   
   initForm(){
     this.FormProduct = this.fb.group({
-      id: ['',Validators.required],
+      /* id: ['',Validators.required], */
       title :['', Validators.required],
       price : ['',[]],
       description : ['',Validators.required],
@@ -38,16 +49,30 @@ export class CrearComponent  implements OnInit {
     })
   }
 
-  validaForm(){
-
+  validaForm() {
+    if (this.FormProduct.invalid) {
+      console.log('Error al Crear el producto');
+    }
+  
     const product = this.FormProduct.value;
+  
+    let maxId = 0;
+    for (let i of this.list) {
+        const id = Number(i.id);
+        if (id > maxId) {
+          maxId = id;
+        }
+    }
 
-    if(this.FormProduct.invalid) {
-      console.log('Error al Crear el producto')
-    }
-    else if(this.FormProduct.valid){
-      this.productService.createProduct(product)
-    }
+    const newProduct: Product = {
+      id: (maxId + 1),
+      ...product
+    };
+  
+    this.productService.createProduct(newProduct);
+    alert('Producto Creado Correctamente');
+    console.log(newProduct)
+    this.FormProduct.reset();
   }
 
 

@@ -17,7 +17,7 @@ export class ProductosComponent  implements OnInit {
   
   @Input() MostrarBotonEliminar: boolean = true;
 
-  constructor() { }
+  constructor(private productService : ListaProductosService) { }
 
   ngOnInit() {
     
@@ -26,11 +26,13 @@ export class ProductosComponent  implements OnInit {
   
   verProducts: Boolean = true;
 
-  ComprarProducto(){
-    console.log("El objeto se ha comprado")
+  AddProductCar(product : Product){
+    this.productService.addCar(product)
+    alert("Producto agregado al carrito")
   }
 
-  EliminarProducto(){
+  EliminarProducto(id : number){
+    this.productService.deleteProductCar(id)
     console.log("El objeto se ha Eliminado")
   }
 
